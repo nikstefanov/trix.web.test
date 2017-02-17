@@ -1,0 +1,2 @@
+serviceClass: com.trix.web.birt.client.ReportService
+path: AA47BCB4D385C200913BF5BCCD15940F.gwt.rpc

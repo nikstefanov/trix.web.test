@@ -1,0 +1,946 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.3.1.v201309091055 Build &lt;4.3.1.v20130917-1035></property>
+    <list-property name="userProperties">
+        <structure>
+            <property name="name">PatientsDataCube.PatientsCrossTabDataSet.x</property>
+            <property name="type">integer</property>
+            <property name="isVisible">false</property>
+        </structure>
+        <structure>
+            <property name="name">PatientsDataCube.PatientsCrossTabDataSet.y</property>
+            <property name="type">integer</property>
+            <property name="isVisible">false</property>
+        </structure>
+    </list-property>
+    <property name="PatientsDataCube.PatientsCrossTabDataSet.x">135</property>
+    <property name="PatientsDataCube.PatientsCrossTabDataSet.y">80</property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <list-property name="libraries">
+        <structure>
+            <property name="fileName">HillClinic/hillclinicreportlibrary.rptlibrary</property>
+            <property name="namespace">hillclinicreportlibrary</property>
+        </structure>
+    </list-property>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="localhost_MySQL_3ixHillClinic" id="7"
+ extends="hillclinicreportlibrary.localhost_MySQL_3ixHillClinic">
+            <property name="odaDriverClass">com.mysql.jdbc.Driver</property>
+            <property name="odaURL">jdbc:mysql://localhost/3ixHillClinic</property>
+            <property name="odaUser">root</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">MTIz</encrypted-property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="PatientsCrossTabDataSet" id="8">
+            <list-property name="computedColumns">
+                <structure>
+                    <property name="name">ageInterval</property>
+                    <expression name="expression">if ( row["decadeAge"] != null ) {&#13;
+	var  a = row["decadeAge"] * 10 ;&#13;
+	displayedString = a + " - " + ( a + 9 ) ;&#13;
+} else {&#13;
+	displayedString = "" ;&#13;
+}</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">sexName</property>
+                    <expression name="expression">if ( row["sex"] == 0 ) {&#13;
+	displayString = "Мъж" ;&#13;
+} else {&#13;
+	if ( row["sex"] == 1 ) {&#13;
+		dispalyString = "Жена" ;&#13;
+	} else {&#13;
+		displayString = "" ;&#13;
+	}&#13;
+}</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">patientsCount</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">patientsCount</text-property>
+                    <text-property name="heading">patientsCount</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">sex</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">sex</text-property>
+                    <text-property name="heading">sex</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">fromDateTimeYear</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">fromDateTimeYear</text-property>
+                    <text-property name="heading">fromDateTimeYear</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">doctorId</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">doctorId</text-property>
+                    <text-property name="heading">doctorId</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">doctorName</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">doctorName</text-property>
+                    <text-property name="heading">doctorName</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">decadeAge</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">decadeAge</text-property>
+                    <text-property name="heading">decadeAge</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">clinicId</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">clinicIdQuaifier</text-property>
+                    <text-property name="heading">clinicIdQuaifier</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">name</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">clinicName</text-property>
+                    <text-property name="heading">clinicName</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">departmentId</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">departmentId</text-property>
+                    <text-property name="heading">departmentId</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">name_10</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">departmentName</text-property>
+                    <text-property name="heading">departmentName</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters"/>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">patientsCount</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">sex</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">fromDateTimeYear</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">doctorId</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">doctorName</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">decadeAge</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">clinicId</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">departmentId</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">name_10</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">ageInterval</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">sexName</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">localhost_MySQL_3ixHillClinic</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">patientsCount</property>
+                    <property name="nativeName">patientsCount</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">-5</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">sex</property>
+                    <property name="nativeName">sex</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">fromDateTimeYear</property>
+                    <property name="nativeName">fromDateTimeYear</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">doctorId</property>
+                    <property name="nativeName">doctorId</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">-5</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">doctorName</property>
+                    <property name="nativeName">doctorName</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">decadeAge</property>
+                    <property name="nativeName">decadeAge</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">clinicId</property>
+                    <property name="nativeName">clinicId</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">-5</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">name</property>
+                    <property name="nativeName">name</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">departmentId</property>
+                    <property name="nativeName">departmentId</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">-5</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">name_10</property>
+                    <property name="nativeName">name</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[SELECT		
+	COUNT(ar.id) AS patientsCount,
+	pe.sex,
+	YEAR(ar.fromDateTime) AS fromDateTimeYear,
+	ar.doctorId,
+	CONCAT(ped.`firstName`, ' ', ped.`middleName`, ' ', ped.`lastName`) AS doctorName,	
+	DATEDIFF(ar.`fromDateTime`,pe.dateOfBirth)*10 DIV 36525 AS decadeAge,
+	ar.clinicId,
+	cl.name as clinicName,
+	ar.departmentId,
+	dep.name as departmentName
+
+FROM __doc__appointmentrequest AS ar
+LEFT OUTER JOIN __nom__patient AS pa
+	ON pa.id = ar.patientId
+LEFT OUTER JOIN __nom__person AS pe
+	ON pe.id = pa.personId
+LEFT OUTER JOIN __nom__employee AS em
+	ON em.id = ar.doctorId
+LEFT OUTER JOIN __nom__person AS ped
+	ON ped.id = em.personId
+LEFT OUTER JOIN __nom__clinic AS cl
+	ON cl.id = ar.clinicId
+LEFT OUTER JOIN __nom__clinicdepartment AS dep
+	ON dep.id = ar.departmentId
+#criteriaWhere# #criteria#
+GROUP BY ar.clinicId, ar.departmentId, ar.doctorId, fromDateTimeYear, pe.sex # This is for test.
+#groupClause]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>patientsCount</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>21</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>patientsCount</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>patientsCount</design:label>
+            <design:formattingHints>
+              <design:displaySize>21</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>malesCount</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>21</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>malesCount</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>malesCount</design:label>
+            <design:formattingHints>
+              <design:displaySize>21</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>femalesCount</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>21</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>femalesCount</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>femalesCount</design:label>
+            <design:formattingHints>
+              <design:displaySize>21</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>doctorId</design:name>
+              <design:position>4</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>20</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>doctorId</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>doctorId</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>doctorName</design:name>
+              <design:position>5</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>767</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>doctorName</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>doctorName</design:label>
+            <design:formattingHints>
+              <design:displaySize>767</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>decadeAge</design:name>
+              <design:position>6</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>9</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>decadeAge</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>decadeAge</design:label>
+            <design:formattingHints>
+              <design:displaySize>9</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>clinicId</design:name>
+              <design:position>7</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>20</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>clinicId</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>clinicId</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>name</design:name>
+              <design:position>8</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>255</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>clinicName</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>clinicName</design:label>
+            <design:formattingHints>
+              <design:displaySize>255</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>departmentId</design:name>
+              <design:position>9</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>20</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>departmentId</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>departmentId</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>name</design:name>
+              <design:position>10</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>255</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>departmentName</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>departmentName</design:label>
+            <design:formattingHints>
+              <design:displaySize>255</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <cubes>
+        <tabular-cube name="PatientsDataCube" id="11">
+            <property name="dimensions">
+                <tabular-dimension name="AgeIntervalGroup" id="12">
+                    <property name="defaultHierarchy">NewTabularHierarchy</property>
+                    <property name="hierarchies">
+                        <tabular-hierarchy name="NewTabularHierarchy" id="13">
+                            <property name="levels">
+                                <tabular-level name="ageInterval" id="14">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">ageInterval</property>
+                                </tabular-level>
+                            </property>
+                        </tabular-hierarchy>
+                    </property>
+                </tabular-dimension>
+                <tabular-dimension name="ClinicGroup" id="15">
+                    <property name="defaultHierarchy">NewTabularHierarchy1</property>
+                    <property name="hierarchies">
+                        <tabular-hierarchy name="NewTabularHierarchy1" id="16">
+                            <property name="levels">
+                                <tabular-level name="clinicName" id="17">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">name</property>
+                                </tabular-level>
+                                <tabular-level name="departmentName" id="120">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">name_10</property>
+                                </tabular-level>
+                            </property>
+                        </tabular-hierarchy>
+                    </property>
+                </tabular-dimension>
+                <tabular-dimension name="DoctorGroup" id="21">
+                    <property name="defaultHierarchy">NewTabularHierarchy3</property>
+                    <property name="hierarchies">
+                        <tabular-hierarchy name="NewTabularHierarchy3" id="22">
+                            <property name="levels">
+                                <tabular-level name="doctorName" id="23">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">doctorName</property>
+                                </tabular-level>
+                            </property>
+                        </tabular-hierarchy>
+                    </property>
+                </tabular-dimension>
+                <tabular-dimension name="SexGroup" id="24">
+                    <property name="defaultHierarchy">NewTabularHierarchy4</property>
+                    <property name="hierarchies">
+                        <tabular-hierarchy name="NewTabularHierarchy4" id="25">
+                            <property name="levels">
+                                <tabular-level name="sex" id="26">
+                                    <property name="dataType">string</property>
+                                    <property name="levelType">dynamic</property>
+                                    <property name="columnName">sex</property>
+                                </tabular-level>
+                            </property>
+                        </tabular-hierarchy>
+                    </property>
+                </tabular-dimension>
+                <tabular-dimension name="SexNameGroup" id="65">
+                    <property name="defaultHierarchy">NewTabularHierarchy5</property>
+                    <property name="hierarchies">
+                        <tabular-hierarchy name="NewTabularHierarchy5" id="66">
+                            <property name="levels">
+                                <tabular-level name="sexName" id="67">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">sexName</property>
+                                </tabular-level>
+                            </property>
+                        </tabular-hierarchy>
+                    </property>
+                </tabular-dimension>
+                <tabular-dimension name="YearGroup" id="90">
+                    <property name="defaultHierarchy">NewTabularHierarchy6</property>
+                    <property name="hierarchies">
+                        <tabular-hierarchy name="NewTabularHierarchy6" id="91">
+                            <property name="levels">
+                                <tabular-level name="Година" id="92">
+                                    <property name="dataType">integer</property>
+                                    <property name="levelType">dynamic</property>
+                                    <property name="columnName">fromDateTimeYear</property>
+                                </tabular-level>
+                            </property>
+                        </tabular-hierarchy>
+                    </property>
+                </tabular-dimension>
+            </property>
+            <property name="measureGroups">
+                <tabular-measure-group name="Summary Patients Count" id="27">
+                    <property name="measures">
+                        <tabular-measure name="patientsCount" id="28">
+                            <expression name="measureExpression" type="javascript">dataSetRow["patientsCount"]</expression>
+                            <property name="dataType">decimal</property>
+                        </tabular-measure>
+                        <tabular-measure name="fromDateTimeYearMin" id="194">
+                            <property name="function">min</property>
+                            <property name="isCalculated">false</property>
+                            <expression name="measureExpression" type="javascript">dataSetRow["fromDateTimeYear"]</expression>
+                            <property name="dataType">integer</property>
+                            <property name="isVisible">true</property>
+                        </tabular-measure>
+                    </property>
+                </tabular-measure-group>
+                <tabular-measure-group name="Summary PatientsMaxCount" id="110">
+                    <property name="measures">
+                        <tabular-measure name="patientsCountMax" id="111">
+                            <property name="function">max</property>
+                            <property name="isCalculated">false</property>
+                            <expression name="measureExpression" type="javascript">dataSetRow["patientsCount"]</expression>
+                            <property name="dataType">decimal</property>
+                            <property name="isVisible">true</property>
+                        </tabular-measure>
+                    </property>
+                </tabular-measure-group>
+            </property>
+            <property name="dataSet">PatientsCrossTabDataSet</property>
+            <property name="autoKey">false</property>
+        </tabular-cube>
+    </cubes>
+    <styles>
+        <style name="report" id="314">
+            <property name="fontFamily">"Times New Roman"</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2"/>
+    </page-setup>
+    <body>
+        <extended-item extensionName="Crosstab" extensionVersion="3.7.0" name="PatientsCrossTab"
+ id="32">
+            <property name="cube">PatientsDataCube</property>
+            <property name="measures">
+                <extended-item extensionName="MeasureView" id="136">
+                    <property name="measure">patientsCount</property>
+                    <property name="detail">
+                        <extended-item extensionName="AggregationCell" id="137">
+                            <property name="aggregationOnRow">ClinicGroup/departmentName</property>
+                            <property name="aggregationOnColumn">SexGroup/sex</property>
+                            <property name="content">
+                                <data id="138">
+                                    <property name="resultSetColumn">patientsCount_ClinicGroup/departmentName_SexGroup/sex</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="header">
+                        <extended-item extensionName="CrosstabCell" id="139">
+                            <property name="content">
+                                <label id="140">
+                                    <text-property name="text">patientsCount</text-property>
+                                </label>
+                            </property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+                <extended-item extensionName="MeasureView" id="195">
+                    <property name="measure">fromDateTimeYearMin</property>
+                    <property name="detail">
+                        <extended-item extensionName="AggregationCell" id="196">
+                            <property name="aggregationOnRow">ClinicGroup/departmentName</property>
+                            <property name="aggregationOnColumn">SexGroup/sex</property>
+                            <property name="content">
+                                <data id="197">
+                                    <property name="resultSetColumn">fromDateTimeYearMin_ClinicGroup/departmentName_SexGroup/sex</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="header">
+                        <extended-item extensionName="CrosstabCell" id="198">
+                            <property name="content">
+                                <label id="199">
+                                    <text-property name="text">fromDateTimeYearMin</text-property>
+                                </label>
+                            </property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+            </property>
+            <property name="rows">
+                <extended-item extensionName="CrosstabView" id="40">
+                    <property name="views">
+                        <extended-item extensionName="DimensionView" id="277">
+                            <property name="dimension">YearGroup</property>
+                            <property name="levels">
+                                <extended-item extensionName="LevelView" name="NewLevel View2" id="278">
+                                    <property name="level">YearGroup/Година</property>
+                                    <property name="member">
+                                        <extended-item extensionName="CrosstabCell" id="279">
+                                            <property name="content">
+                                                <data name="Година" id="282">
+                                                    <property name="resultSetColumn">Година</property>
+                                                </data>
+                                            </property>
+                                        </extended-item>
+                                    </property>
+                                </extended-item>
+                            </property>
+                        </extended-item>
+                        <extended-item extensionName="DimensionView" id="258">
+                            <property name="dimension">ClinicGroup</property>
+                            <property name="levels">
+                                <extended-item extensionName="LevelView" name="NewLevel View" id="259">
+                                    <property name="level">ClinicGroup/clinicName</property>
+                                    <property name="member">
+                                        <extended-item extensionName="CrosstabCell" id="260">
+                                            <property name="content">
+                                                <data name="clinicName" id="263">
+                                                    <property name="resultSetColumn">clinicName</property>
+                                                </data>
+                                            </property>
+                                        </extended-item>
+                                    </property>
+                                </extended-item>
+                                <extended-item extensionName="LevelView" name="NewLevel View1" id="271">
+                                    <property name="level">ClinicGroup/departmentName</property>
+                                    <property name="member">
+                                        <extended-item extensionName="CrosstabCell" id="272">
+                                            <property name="content">
+                                                <data name="departmentName" id="275">
+                                                    <property name="resultSetColumn">departmentName</property>
+                                                </data>
+                                            </property>
+                                        </extended-item>
+                                    </property>
+                                </extended-item>
+                            </property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+            </property>
+            <property name="columns">
+                <extended-item extensionName="CrosstabView" id="34">
+                    <property name="views">
+                        <extended-item extensionName="DimensionView" id="175">
+                            <property name="dimension">SexGroup</property>
+                            <property name="levels">
+                                <extended-item extensionName="LevelView" name="NewLevel View4" id="176">
+                                    <property name="level">SexGroup/sex</property>
+                                    <property name="member">
+                                        <extended-item extensionName="CrosstabCell" id="177">
+                                            <property name="content">
+                                                <data name="sex" id="181">
+                                                    <property name="resultSetColumn">sex</property>
+                                                </data>
+                                            </property>
+                                        </extended-item>
+                                    </property>
+                                </extended-item>
+                            </property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+            </property>
+            <property name="header">
+                <extended-item extensionName="CrosstabCell" id="281"/>
+                <extended-item extensionName="CrosstabCell" id="262"/>
+                <extended-item extensionName="CrosstabCell" id="180">
+                    <property name="content">
+                        <label id="182">
+                            <text-property name="text">sex</text-property>
+                        </label>
+                    </property>
+                </extended-item>
+                <extended-item extensionName="CrosstabCell" id="280">
+                    <property name="content">
+                        <label id="283">
+                            <text-property name="text">Година</text-property>
+                        </label>
+                    </property>
+                </extended-item>
+                <extended-item extensionName="CrosstabCell" id="261">
+                    <property name="content">
+                        <label id="264">
+                            <text-property name="text">clinicName</text-property>
+                        </label>
+                    </property>
+                </extended-item>
+                <extended-item extensionName="CrosstabCell" id="273">
+                    <property name="content">
+                        <label id="276">
+                            <text-property name="text">departmentName</text-property>
+                        </label>
+                    </property>
+                </extended-item>
+            </property>
+            <property name="marginBottom">10pt</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">sex</property>
+                    <expression name="expression" type="javascript">dimension["SexGroup"]["sex"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">clinicName</property>
+                    <expression name="expression">dimension["ClinicGroup"]["clinicName"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">departmentName</property>
+                    <expression name="expression">dimension["ClinicGroup"]["departmentName"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">patientsCount_ClinicGroup/departmentName_SexGroup/sex</property>
+                    <expression name="expression">measure["patientsCount"]</expression>
+                    <property name="dataType">decimal</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>ClinicGroup/departmentName</value>
+                        <value>SexGroup/sex</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+                <structure>
+                    <property name="name">fromDateTimeYearMin_ClinicGroup/departmentName_SexGroup/sex</property>
+                    <expression name="expression">measure["fromDateTimeYearMin"]</expression>
+                    <property name="dataType">integer</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>ClinicGroup/departmentName</value>
+                        <value>SexGroup/sex</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">MIN</property>
+                </structure>
+                <structure>
+                    <property name="name">Година</property>
+                    <expression name="expression">dimension["YearGroup"]["Година"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+            </list-property>
+        </extended-item>
+        <table name="DoctorsTable" id="284">
+            <property name="width">7.947916666666667in</property>
+            <property name="dataSet">PatientsCrossTabDataSet</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">doctorId</property>
+                    <text-property name="displayName">doctorId</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["doctorId"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">doctorName</property>
+                    <text-property name="displayName">doctorName</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["doctorName"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">name</property>
+                    <text-property name="displayName">clinicName</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["name"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">name_10</property>
+                    <text-property name="displayName">departmentName</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["name_10"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <property name="pageBreakInterval">40</property>
+            <column id="297">
+                <property name="width">1.2604166666666667in</property>
+            </column>
+            <column id="303">
+                <property name="width">1.5in</property>
+            </column>
+            <column id="298">
+                <property name="width">0.6979166666666666in</property>
+            </column>
+            <column id="299">
+                <property name="width">4.489583333333333in</property>
+            </column>
+            <header>
+                <row id="285">
+                    <cell id="286">
+                        <label id="309">
+                            <text-property name="text">Клиника</text-property>
+                        </label>
+                    </cell>
+                    <cell id="300">
+                        <label id="311">
+                            <text-property name="text">Отделение</text-property>
+                        </label>
+                    </cell>
+                    <cell id="287">
+                        <label id="312">
+                            <text-property name="text">Доктор №</text-property>
+                        </label>
+                    </cell>
+                    <cell id="288">
+                        <label id="310">
+                            <text-property name="text">Доктор</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="289">
+                    <cell id="290">
+                        <data id="304">
+                            <property name="resultSetColumn">name</property>
+                        </data>
+                    </cell>
+                    <cell id="301">
+                        <data id="306">
+                            <property name="resultSetColumn">name_10</property>
+                        </data>
+                    </cell>
+                    <cell id="291">
+                        <data id="307">
+                            <property name="resultSetColumn">doctorId</property>
+                        </data>
+                    </cell>
+                    <cell id="292">
+                        <data id="308">
+                            <property name="resultSetColumn">doctorName</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+            <footer>
+                <row id="293">
+                    <cell id="294"/>
+                    <cell id="302"/>
+                    <cell id="295"/>
+                    <cell id="296"/>
+                </row>
+            </footer>
+        </table>
+    </body>
+</report>

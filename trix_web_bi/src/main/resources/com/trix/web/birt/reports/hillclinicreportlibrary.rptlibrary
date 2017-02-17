@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="units">in</property>
+    <property name="theme">defaultTheme</property>
+    <parameters>
+        <scalar-parameter name="AbstractFilterItem" id="94">
+            <list-property name="userProperties">
+                <structure>
+                    <property name="name">ColumnName</property>
+                    <property name="type">string</property>
+                </structure>
+                <structure>
+                    <property name="name">IsFilter</property>
+                    <property name="type">boolean</property>
+                </structure>
+                <structure>
+                    <property name="name">TrixId</property>
+                    <property name="type">string</property>
+                </structure>
+            </list-property>
+            <property name="IsFilter">true</property>
+            <property name="hidden">true</property>
+            <text-property name="promptText">town</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="AbstractGroupParameter" id="96">
+            <list-property name="userProperties">
+                <structure>
+                    <property name="name">ColumnName</property>
+                    <property name="type">string</property>
+                </structure>
+                <structure>
+                    <property name="name">IsGroup</property>
+                    <property name="type">boolean</property>
+                </structure>
+            </list-property>
+            <property name="IsGroup">true</property>
+            <property name="hidden">true</property>
+            <text-property name="promptText">HumanReadableName</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant"></value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="AbstractGroupItem" id="99">
+            <list-property name="userProperties">
+                <structure>
+                    <property name="name">Column</property>
+                    <property name="type">string</property>
+                </structure>
+				<structure>
+                    <property name="name">ColumnBinding</property>
+                    <property name="type">string</property>
+                </structure>
+				<structure>
+                    <property name="name">ColumnName</property>
+                    <property name="type">string</property>
+                </structure>
+				<structure>
+                    <property name="name">IsGroup</property>
+                    <property name="type">boolean</property>
+                </structure>
+            </list-property>
+			<property name="Column">ar.doctorId</property>
+			<property name="ColumnBinding">doctorIdBinding</property>
+            <property name="ColumnName">doctor</property>
+            <property name="IsGroup">true</property>            
+            <property name="hidden">true</property>
+            <text-property name="promptText">HumanReadableName</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant"></value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="OwnParameter" id="100">
+            <list-property name="userProperties">
+                <structure>
+                    <property name="name">pr123</property>
+                    <property name="type">string</property>
+                </structure>
+				<structure>
+                    <property name="name">pr125</property>
+                    <property name="type">string</property>
+                </structure>
+            </list-property>
+			<property name="pr123">756889(44444)</property>
+			<property name="pr125">756889(55)</property>			
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="localhost_MySQL_3ixHillClinic" id="5">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">com.mysql.jdbc.Driver</property>
+            <property name="odaURL">jdbc:mysql://localhost/3ixHillClinic</property>
+            <property name="odaUser">root</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">MTIz</encrypted-property>
+        </oda-data-source>
+		<oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="SampleDatabaseDS" id="90">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">org.eclipse.birt.report.data.oda.sampledb.Driver</property>
+            <property name="odaURL">jdbc:classicmodels:sampledb</property>
+            <property name="odaUser">ClassicModels</property>
+        </oda-data-source>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="ClassicModelsMySQL" id="92">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">com.mysql.jdbc.Driver</property>
+            <property name="odaURL">jdbc:mysql://localhost/classicmodels</property>
+            <property name="odaUser">root</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">MTIz</encrypted-property>
+        </oda-data-source>
+    </data-sources>
+    <themes>
+        <theme name="defaultTheme" id="4">
+            <styles>
+                <style name="times-font" id="95">
+                    <property name="fontFamily">"Times New Roman", "Georgia", Serif</property>
+                </style>
+            </styles>
+        </theme>
+    </themes>
+    <page-setup>
+        <simple-master-page name="NewSimpleMasterPage" id="3"/>
+    </page-setup>
+</library>

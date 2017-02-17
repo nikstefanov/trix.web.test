@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app
+    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+    "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+  
+  <!-- Servlets -->
+  <servlet>
+  	<servlet-name>ReportListServlet</servlet-name>
+  	<servlet-class>example.server.ReportListServiceImpl</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>BirtGeneratorServlet</servlet-name>
+    <servlet-class>example.server.BirtGeneratorServiceImpl</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>ReportListServlet</servlet-name>
+  	<url-pattern>/simplegwt/list</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>BirtGeneratorServlet</servlet-name>
+    <url-pattern>/simplegwt/birt</url-pattern>
+  </servlet-mapping>
+  
+  
+  <!-- Default page to serve -->
+  <welcome-file-list>
+    <welcome-file>SimpleGWT.html</welcome-file>
+  </welcome-file-list>
+
+</web-app>
